@@ -13,10 +13,11 @@ pub enum OpenF1ClientError {
         body: String,
         endpoint: &'static str,
     },
-
     #[error("Encountered dezerialization error for endpoin: {endpoint} - {source}")]
     Dezerialization {
         endpoint: &'static str,
         source: reqwest::Error,
     },
+    #[error("Encountered unknown flag variant: {flag}")]
+    UnknownFlagVariant { flag: String },
 }

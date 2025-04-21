@@ -6,28 +6,25 @@ use reqwest::StatusCode;
 use crate::{BASE_URL, OpenF1ClientError};
 use serde::{Deserialize, Serialize};
 
-const URL: &str = concatcp!(BASE_URL, "car_data");
+const URL: &str = concatcp!(BASE_URL, "location");
 
 #[client_request]
 #[derive(Debug, Default, Serialize)]
-pub struct CarDataRequest {
+pub struct LocationRequest {
     meeting_key: Option<usize>,
     session_key: Option<usize>,
     driver_number: Option<usize>,
 }
 
 #[derive(Default, Deserialize, Debug)]
-pub struct CarDataResponse {
-    pub brake: usize,
+pub struct LocationResponse {
     pub date: chrono::DateTime<Utc>,
     pub driver_number: usize,
-    pub drs: usize,
     pub meeting_key: usize,
-    pub n_gear: usize,
-    pub rpm: usize,
     pub session_key: usize,
-    pub speed: usize,
-    pub throttle: usize,
+    pub x: isize,
+    pub y: isize,
+    pub z: isize,
 }
 
 #[cfg(test)]
@@ -38,9 +35,9 @@ mod tests {
     async fn test_car_data() {
         let client = Client::new();
         let _ = client
-            .car_data()
-            .driver_number(55)
-            .session_key(9159)
+            .location()
+            .driver_number(81)
+            .session_key(9161)
             .send()
             .await
             .unwrap();
