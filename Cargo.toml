@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["open-f1-client", "open-f1-cleint-macros"]
+members = ["open-f1-client", "open-f1-client-macros"]
 
 [workspace.package]
 version = "0.1.0"

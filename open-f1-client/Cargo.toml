@@ -4,7 +4,7 @@ version.workspace = true
 edition.workspace = true
 
 [dependencies]
-open-f1-client-macros = { path = "../open-f1-cleint-macros" }
+open-f1-client-macros = { path = "../open-f1-client-macros" }
 chrono = { workspace = true, features = ["serde"] }
 const_format = { workspace = true }
 reqwest = { workspace = true, features = ["json"] }
