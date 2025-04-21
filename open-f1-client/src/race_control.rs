@@ -1,6 +1,6 @@
 use chrono::Utc;
 use const_format::concatcp;
-use open_f1_client_macros::client_request;
+use open_f1_client_macros::api_request;
 use reqwest::StatusCode;
 
 use serde::{Deserialize, Serialize};
