@@ -1,3 +1,4 @@
+use convert_case::{Case, Casing};
 use proc_macro::TokenStream;
 use quote::quote;
 use syn::{ItemStruct, parse_macro_input};
@@ -9,9 +10,15 @@ pub fn client_request(_: TokenStream, annotated_item: TokenStream) -> TokenStrea
     let request_name = &input.ident;
 
     let name_without_suffix = input.ident.to_string();
+
     let name_without_suffix = name_without_suffix
         .strip_suffix("Request")
         .expect("Failed to strup suffix 'Request', the struct isn't named as expected");
+
+    let client_method_name = syn::Ident::new(
+        &name_without_suffix.to_case(Case::Snake),
+        input.ident.span(),
+    );
 
     let response_name = syn::Ident::new(
         &format!("{name_without_suffix}Response"),
@@ -39,6 +46,18 @@ pub fn client_request(_: TokenStream, annotated_item: TokenStream) -> TokenStrea
     let all_methods = quote! {
         #( #field_methods )*
     };
+
+    let client_impl = quote! {
+        impl crate::Client {
+            pub fn #client_method_name(&self) -> crate::RequestBuilder<'_, #request_name> {
+            crate::RequestBuilder {
+                client: &self.client,
+                request: #request_name::default(),
+            }
+        }
+    }
+
+        };
 
     let request_impl = quote! {
         impl crate::RequestBuilder<'_, #request_name > {
@@ -78,6 +97,7 @@ pub fn client_request(_: TokenStream, annotated_item: TokenStream) -> TokenStrea
     let both = quote! {
         #input
         #request_impl
+        #client_impl
     };
 
     both.into()

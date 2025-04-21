@@ -1,7 +1,14 @@
+mod car_data;
 mod error;
 mod meetings;
+mod sessions;
+
+pub use meetings::*;
 
 pub use error::OpenF1ClientError;
+
+const BASE_URL: &str = "https://api.openf1.org/v1/";
+
 #[derive(Clone, Default)]
 pub struct Client {
     client: reqwest::Client,
@@ -15,23 +22,7 @@ impl Client {
     }
 }
 
-const BASE_URL: &str = "https://api.openf1.org/v1/";
-
 pub struct RequestBuilder<'a, T> {
     client: &'a reqwest::Client,
     request: T,
-}
-
-#[macro_export]
-macro_rules! impl_client_for_request {
-    ($method:ident, $request:ty) => {
-        impl $crate::Client {
-            pub fn $method(&self) -> $crate::RequestBuilder<'_, $request> {
-                $crate::RequestBuilder {
-                    client: &self.client,
-                    request: <$request>::default(),
-                }
-            }
-        }
-    };
 }
