@@ -18,6 +18,4 @@ pub enum OpenF1ClientError {
         endpoint: &'static str,
         source: reqwest::Error,
     },
-    #[error("Encountered unknown flag variant: {flag}")]
-    UnknownFlagVariant { flag: String },
 }

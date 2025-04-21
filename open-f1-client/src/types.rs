@@ -47,29 +47,3 @@ pub enum TyreCompound {
     Unknown,
     Intermediate,
 }
-
-// impl Display for Flag {
-//     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-//         match self {
-//             Flag::BlackAndWhite => write!(f, "BLACK AND WHITE"),
-//             Flag::Red => write!(f, "RED"),
-//             Flag::Yellow => write!(f, "YELLOW"),
-//             Flag::Blue => write!(f, "BLUE"),
-//             Flag::Chequered => write!(f, "CHEQUERED"),
-//         }
-//     }
-// }
-//
-// impl FromStr for Flag {
-//     type Err = OpenF1ClientError;
-//
-//     fn from_str(s: &str) -> Result<Self, Self::Err> {
-//         match s {
-//             "BLACK AND WHITE" => Ok(Self::BlackAndWhite),
-//             "RED" => Ok(Self::Red),
-//             other => Err(OpenF1ClientError::UnknownFlagVariant {
-//                 flag: other.to_string(),
-//             }),
-//         }
-//     }
-// }
