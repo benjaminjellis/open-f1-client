@@ -15,7 +15,7 @@ pub struct MeetingsRequest {
     country_name: Option<String>,
 }
 
-#[derive(Default, Deserialize)]
+#[derive(Debug, Default, Deserialize)]
 pub struct MeetingsResponse {
     pub circuit_key: usize,
     pub circuit_short_name: String,
