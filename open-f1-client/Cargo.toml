@@ -1,0 +1,15 @@
+[package]
+name = "open-f1-client"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+open-f1-client-macros = { path = "../open-f1-cleint-macros" }
+chrono = { workspace = true, features = ["serde"] }
+const_format = { workspace = true }
+reqwest = { workspace = true, features = ["json"] }
+serde = { workspace = true, features = ["derive"] }
+thiserror = { workspace = true }
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["full"] }
