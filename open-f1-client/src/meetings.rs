@@ -11,7 +11,7 @@ const URL: &str = concatcp!(BASE_URL, "meetings");
 #[api_request]
 #[derive(Default, Serialize)]
 pub struct MeetingsRequest {
-    year: Option<u8>,
+    year: Option<u16>,
     country_name: Option<String>,
 }
 
@@ -28,7 +28,7 @@ pub struct MeetingsResponse {
     pub meeting_key: usize,
     pub meeting_name: String,
     pub meeting_official_name: String,
-    pub year: u8,
+    pub year: u16,
 }
 
 #[cfg(test)]
