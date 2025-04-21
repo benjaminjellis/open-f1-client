@@ -16,11 +16,16 @@ mod weather;
 pub use car_data::*;
 
 pub use drivers::*;
+pub use laps::*;
 pub use location::*;
 pub use meetings::*;
 pub use pit::*;
 pub use position::*;
+pub use race_control::*;
 pub use sessions::*;
+pub use stints::*;
+pub use team_radio::*;
+pub use weather::*;
 
 pub use error::OpenF1ClientError;
 
