@@ -9,7 +9,7 @@ use crate::{BASE_URL, OpenF1ClientError};
 
 const URL: &str = concatcp!(BASE_URL, "team_radio");
 
-#[client_request]
+#[api_request]
 #[derive(Debug, Default, Serialize)]
 pub struct TeamRadioRequest {
     meeting_key: Option<usize>,

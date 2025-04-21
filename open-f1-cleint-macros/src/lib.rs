@@ -4,7 +4,7 @@ use quote::quote;
 use syn::{ItemStruct, parse_macro_input};
 
 #[proc_macro_attribute]
-pub fn client_request(_: TokenStream, annotated_item: TokenStream) -> TokenStream {
+pub fn api_request(_: TokenStream, annotated_item: TokenStream) -> TokenStream {
     let input = parse_macro_input!(annotated_item as ItemStruct);
 
     let request_name = &input.ident;

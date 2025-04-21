@@ -12,7 +12,7 @@ use crate::{
 
 const URL: &str = concatcp!(BASE_URL, "race_control");
 
-#[client_request]
+#[api_request]
 #[derive(Debug, Default, Serialize)]
 pub struct RaceControlRequest {
     meeting_key: Option<usize>,

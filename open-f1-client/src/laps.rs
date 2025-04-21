@@ -8,7 +8,7 @@ use serde::{Deserialize, Serialize};
 
 const URL: &str = concatcp!(BASE_URL, "laps");
 
-#[client_request]
+#[api_request]
 #[derive(Debug, Default, Serialize)]
 pub struct LapsRequest {
     session_key: Option<usize>,

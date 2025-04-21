@@ -8,7 +8,7 @@ use serde::{Deserialize, Serialize};
 
 const URL: &str = concatcp!(BASE_URL, "pit");
 
-#[client_request]
+#[api_request]
 #[derive(Debug, Default, Serialize)]
 pub struct PitRequest {
     meeting_key: Option<usize>,

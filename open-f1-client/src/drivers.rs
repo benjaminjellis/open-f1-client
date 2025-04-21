@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 
 const URL: &str = concatcp!(BASE_URL, "drivers");
 
-#[client_request]
+#[api_request]
 #[derive(Debug, Default, Serialize)]
 pub struct DriversRequest {
     session_key: Option<usize>,

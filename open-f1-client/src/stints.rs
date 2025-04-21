@@ -8,7 +8,7 @@ use crate::{BASE_URL, OpenF1ClientError, types::TyreCompound};
 
 const URL: &str = concatcp!(BASE_URL, "stints");
 
-#[client_request]
+#[api_request]
 #[derive(Debug, Default, Serialize)]
 pub struct StintsRequest {
     meeting_key: Option<usize>,

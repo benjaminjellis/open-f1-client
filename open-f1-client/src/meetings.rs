@@ -8,7 +8,7 @@ use serde::{Deserialize, Serialize};
 
 const URL: &str = concatcp!(BASE_URL, "meetings");
 
-#[client_request]
+#[api_request]
 #[derive(Default, Serialize)]
 pub struct MeetingsRequest {
     year: Option<u8>,

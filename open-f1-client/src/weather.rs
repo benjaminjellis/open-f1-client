@@ -9,7 +9,7 @@ use crate::{BASE_URL, OpenF1ClientError};
 
 const URL: &str = concatcp!(BASE_URL, "weather");
 
-#[client_request]
+#[api_request]
 #[derive(Debug, Default, Serialize)]
 pub struct WeatherRequest {
     meeting_key: Option<usize>,
